@@ -11,7 +11,7 @@ const STEP_TITLES = [
   'The People',
   'Musical DNA & Character',
   'Song Style',
-  'Review & Pay',
+  'Review & Submit',
 ]
 
 const INITIAL = {
@@ -55,6 +55,9 @@ function getMissing(step, data) {
       if (!data.tempo) m.push('tempo')
       if (!data.lyricTone) m.push('lyric tone')
       break
+    case 4:
+      if (!data.email || !data.email.includes('@')) m.push('a valid email')
+      break
   }
   return m
 }
@@ -64,6 +67,7 @@ export default function Commission() {
   const [step, setStep] = useState(0)
   const [data, setData] = useState(INITIAL)
   const [showMissing, setShowMissing] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   const update = (fields) => { setData(prev => ({ ...prev, ...fields })); setShowMissing(false) }
 
@@ -80,9 +84,47 @@ export default function Commission() {
   const prev = () => { if (step > 0) { setStep(s => s - 1); setShowMissing(false); window.scrollTo(0, 0) } }
 
   const handleSubmit = () => {
-    // Phase 2: this will call create-checkout Netlify Function → Stripe
-    alert('Payment integration coming in Phase 2. Your song data is ready!')
-    console.log('Sonari order data:', data)
+    if (!canAdvance) { setShowMissing(true); return }
+    // Save to localStorage so we don't lose it
+    const order = { ...data, submittedAt: new Date().toISOString() }
+    try {
+      const existing = JSON.parse(localStorage.getItem('sonari_orders') || '[]')
+      existing.push(order)
+      localStorage.setItem('sonari_orders', JSON.stringify(existing))
+    } catch (_) {}
+    console.log('Sonari beta order:', order)
+    setSubmitted(true)
+    window.scrollTo(0, 0)
+  }
+
+  if (submitted) {
+    return (
+      <div style={{ minHeight: '100vh', paddingTop: 20 }}>
+        <div className="container">
+          <div className="form-header">
+            <div className="wordmark">Sonari</div>
+          </div>
+          <div style={{ textAlign: 'center', padding: '48px 0' }}>
+            <div style={{ fontSize: '3rem', marginBottom: 16 }}>♪</div>
+            <h1 style={{ fontFamily: 'var(--serif)', fontSize: '2rem', marginBottom: 12 }}>You're in the beta.</h1>
+            <p style={{ color: 'var(--cream-muted)', marginBottom: 8 }}>
+              We received your song brief for <strong>{data.recipientName}</strong>.
+            </p>
+            <p style={{ color: 'var(--cream-muted)', marginBottom: 32 }}>
+              We'll be in touch at <strong>{data.email}</strong> when your Sonari is ready.
+            </p>
+            <div style={{ background: 'var(--gold-faint)', borderRadius: 12, padding: '20px 24px', maxWidth: 400, margin: '0 auto 32px', textAlign: 'left' }}>
+              <p style={{ fontSize: '0.85rem', color: 'var(--cream-dim)', margin: 0, lineHeight: 1.7 }}>
+                <strong>What happens next:</strong><br />
+                Our team will use your brief to create a one-of-a-kind song for {data.recipientName}.
+                Once it's ready, you'll receive a link to your personalized song and digital card.
+              </p>
+            </div>
+            <button className="btn btn-outline" onClick={() => navigate('/')}>Back to Home</button>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -110,7 +152,7 @@ export default function Commission() {
         {step === 1 && <StepPeople data={data} onChange={update} />}
         {step === 2 && <StepMusicalDNA data={data} onChange={update} />}
         {step === 3 && <StepSongStyle data={data} onChange={update} />}
-        {step === 4 && <StepReviewPay data={data} />}
+        {step === 4 && <StepReviewPay data={data} onChange={update} />}
 
         {/* Missing fields hint */}
         {showMissing && missing.length > 0 && (
@@ -133,7 +175,7 @@ export default function Commission() {
             </button>
           ) : (
             <button className="btn btn-gold" onClick={handleSubmit}>
-              Pay $25 & Create My Sonari
+              Request My Sonari (Beta)
             </button>
           )}
         </div>

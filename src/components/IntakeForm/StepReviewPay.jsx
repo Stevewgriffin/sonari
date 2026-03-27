@@ -11,7 +11,7 @@ function ReviewRow({ label, value }) {
   )
 }
 
-export default function StepReviewPay({ data }) {
+export default function StepReviewPay({ data, onChange }) {
   const era = getEra(data.birthYear)
   const voiceList = data.voiceGender ? VOICES[data.voiceGender] : []
   const voice = voiceList.find(v => v.id === data.voiceStyle)
@@ -53,21 +53,20 @@ export default function StepReviewPay({ data }) {
       </div>
 
       <div className="price-bar">
-        <div className="price">$25.00</div>
-        <div className="price-note">One original song · Delivered within minutes</div>
+        <div className="price">Beta — Free</div>
+        <div className="price-note">One original song · We'll email you when it's ready</div>
       </div>
 
       <div className="field">
-        <label>Your email (for delivery)</label>
+        <label>Your email <span style={{ color: 'var(--gold)' }}>*</span></label>
         <input
           type="email"
           value={data.email || ''}
           placeholder="you@example.com"
-          readOnly
-          style={{ opacity: 0.5, cursor: 'not-allowed' }}
+          onChange={e => onChange && onChange({ email: e.target.value })}
         />
         <p style={{ fontSize: '0.78rem', marginTop: 6, color: 'var(--cream-muted)' }}>
-          Payment will be connected in Phase 2 (Stripe Checkout)
+          We'll send your song here. No payment required during beta.
         </p>
       </div>
     </div>
