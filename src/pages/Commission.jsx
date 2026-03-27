@@ -34,25 +34,50 @@ const INITIAL = {
   email: '',
 }
 
-function canAdvance(step, data) {
+function getMissing(step, data) {
+  const m = []
   switch (step) {
-    case 0: return !!data.occasion
-    case 1: return data.senderName.trim() && data.recipientName.trim() && data.relationship
-    case 2: return data.birthYear && data.voiceGender && data.voiceStyle && data.genre && (data.traits || []).length > 0 && data.feeling
-    case 3: return data.tempo && data.lyricTone
-    default: return true
+    case 0: if (!data.occasion) m.push('occasion'); break
+    case 1:
+      if (!data.senderName.trim()) m.push('your name')
+      if (!data.recipientName.trim()) m.push("recipient's name")
+      if (!data.relationship) m.push('relationship')
+      break
+    case 2:
+      if (!data.birthYear) m.push('birth year')
+      if (!data.voiceGender) m.push('voice gender')
+      if (!data.voiceStyle) m.push('voice style')
+      if (!data.genre) m.push('genre')
+      if (!(data.traits || []).length) m.push('at least one trait')
+      if (!data.feeling) m.push('feeling')
+      break
+    case 3:
+      if (!data.tempo) m.push('tempo')
+      if (!data.lyricTone) m.push('lyric tone')
+      break
   }
+  return m
 }
 
 export default function Commission() {
   const navigate = useNavigate()
   const [step, setStep] = useState(0)
   const [data, setData] = useState(INITIAL)
+  const [showMissing, setShowMissing] = useState(false)
 
-  const update = (fields) => setData(prev => ({ ...prev, ...fields }))
+  const update = (fields) => { setData(prev => ({ ...prev, ...fields })); setShowMissing(false) }
 
-  const next = () => { if (step < 4 && canAdvance(step, data)) setStep(s => s + 1); window.scrollTo(0, 0) }
-  const prev = () => { if (step > 0) setStep(s => s - 1); window.scrollTo(0, 0) }
+  const missing = getMissing(step, data)
+  const canAdvance = missing.length === 0
+
+  const next = () => {
+    if (step >= 4) return
+    if (!canAdvance) { setShowMissing(true); return }
+    setShowMissing(false)
+    setStep(s => s + 1)
+    window.scrollTo(0, 0)
+  }
+  const prev = () => { if (step > 0) { setStep(s => s - 1); setShowMissing(false); window.scrollTo(0, 0) } }
 
   const handleSubmit = () => {
     // Phase 2: this will call create-checkout Netlify Function → Stripe
@@ -87,6 +112,13 @@ export default function Commission() {
         {step === 3 && <StepSongStyle data={data} onChange={update} />}
         {step === 4 && <StepReviewPay data={data} />}
 
+        {/* Missing fields hint */}
+        {showMissing && missing.length > 0 && (
+          <div className="missing-hint">
+            Please complete: {missing.join(', ')}
+          </div>
+        )}
+
         {/* Navigation */}
         <div className="btn-row">
           {step === 0 ? (
@@ -96,11 +128,7 @@ export default function Commission() {
           )}
 
           {step < 4 ? (
-            <button
-              className="btn btn-gold"
-              onClick={next}
-              disabled={!canAdvance(step, data)}
-            >
+            <button className="btn btn-gold" onClick={next}>
               Continue
             </button>
           ) : (

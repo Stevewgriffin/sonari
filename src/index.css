@@ -1,19 +1,19 @@
-/* === Sonari Design System — matches sonarimusic.netlify.app === */
+/* === Sonari Design System — Light & Clean === */
 :root {
-  --night: #0d0b09;
-  --deep: #161209;
-  --warm: #1e1810;
-  --surface: #272018;
-  --gold: #c9983a;
-  --gold-light: #e8c06a;
-  --gold-dim: rgba(201, 152, 58, 0.22);
-  --gold-faint: rgba(201, 152, 58, 0.09);
-  --cream: #f5efe2;
-  --cream-dim: rgba(245, 239, 226, 0.62);
-  --cream-faint: rgba(245, 239, 226, 0.28);
-  --cream-ghost: rgba(245, 239, 226, 0.06);
-  --green: #5a9068;
-  --orange: #c97040;
+  --night: #ffffff;
+  --deep: #f8f6f3;
+  --warm: #f0ece6;
+  --surface: #e8e4dd;
+  --gold: #b08830;
+  --gold-light: #c9a043;
+  --gold-dim: rgba(176, 136, 48, 0.18);
+  --gold-faint: rgba(176, 136, 48, 0.08);
+  --cream: #1a1816;
+  --cream-dim: rgba(26, 24, 22, 0.6);
+  --cream-faint: rgba(26, 24, 22, 0.18);
+  --cream-ghost: rgba(26, 24, 22, 0.04);
+  --green: #3d7a4e;
+  --orange: #b85e30;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
   --script: 'Pinyon Script', cursive;
@@ -34,17 +34,6 @@ body {
   line-height: 1.9;
   font-size: 15px;
   min-height: 100vh;
-}
-
-/* Grain overlay */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
 #root {
@@ -115,7 +104,7 @@ section { padding: 80px 0; }
   right: 0;
   z-index: 100;
   backdrop-filter: blur(20px);
-  background: rgba(13, 11, 9, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid var(--cream-ghost);
   padding: 16px 44px;
   display: flex;
@@ -243,7 +232,7 @@ section { padding: 80px 0; }
   font-style: italic;
   font-size: clamp(14px, 1.6vw, 17px);
   line-height: 1.7;
-  color: var(--night);
+  color: #1a1816;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -278,7 +267,7 @@ section { padding: 80px 0; }
 
 .btn-gold {
   background: var(--gold);
-  color: var(--night);
+  color: #fff;
 }
 
 .btn-gold:hover { background: var(--gold-light); }
@@ -706,7 +695,7 @@ footer {
   padding-right: 40px;
 }
 
-.field select option { background: var(--night); color: var(--cream); }
+.field select option { background: #fff; color: #1a1816; }
 
 .field textarea { resize: vertical; min-height: 88px; }
 
@@ -883,6 +872,18 @@ footer {
   font-size: 14px;
   color: var(--cream-dim);
   margin-top: 6px;
+}
+
+/* === Missing Fields Hint === */
+.missing-hint {
+  background: #fef3e2;
+  border: 1px solid var(--gold-dim);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #8a6a1e;
+  margin-bottom: 8px;
+  text-align: center;
 }
 
 /* === Responsive === */
