@@ -4,14 +4,15 @@
   --deep: #f8f6f3;
   --warm: #f0ece6;
   --surface: #e8e4dd;
-  --gold: #96761e;
-  --gold-light: #b08830;
-  --gold-dim: rgba(150, 118, 30, 0.22);
-  --gold-faint: rgba(150, 118, 30, 0.10);
+  --gold: #86690f;
+  --gold-light: #a07e1c;
+  --gold-dim: #d4c49a;
+  --gold-faint: #ede6d4;
   --cream: #1a1816;
   --cream-dim: #3d3832;
-  --cream-faint: rgba(26, 24, 22, 0.35);
-  --cream-ghost: rgba(26, 24, 22, 0.06);
+  --cream-muted: #706862;
+  --cream-faint: #c4bdb5;
+  --cream-ghost: #eae6e1;
   --green: #3d7a4e;
   --orange: #b85e30;
   --serif: 'Cormorant Garamond', Georgia, serif;
@@ -348,8 +349,8 @@ section { padding: 80px 0; }
   font-family: var(--serif);
   font-style: italic;
   font-size: 15px;
-  color: var(--cream-faint);
-  border-top: 1px solid var(--cream-ghost);
+  color: var(--cream-muted);
+  border-top: 1px solid var(--cream-faint);
   padding-top: 16px;
 }
 
@@ -430,8 +431,8 @@ section { padding: 80px 0; }
 }
 
 .rc-card .rc-context {
-  font-size: 12px;
-  color: var(--cream-faint);
+  font-size: 13px;
+  color: var(--cream-muted);
 }
 
 /* === Pull Quote === */
@@ -477,7 +478,7 @@ section { padding: 80px 0; }
   line-height: 1.6;
 }
 
-.compare-cell.not { color: #999188; }
+.compare-cell.not { color: var(--cream-muted); }
 .compare-cell.not::before { content: '\2717  '; }
 .compare-cell.is { color: var(--cream); }
 .compare-cell.is::before { content: '\2014  '; color: var(--gold); }
@@ -530,8 +531,8 @@ section { padding: 80px 0; }
 }
 
 .eco-item .eco-desc {
-  font-size: 12px;
-  color: var(--cream-faint);
+  font-size: 13px;
+  color: var(--cream-muted);
 }
 
 /* === Footer === */
@@ -549,8 +550,8 @@ footer {
 }
 
 .footer-copy {
-  font-size: 12px;
-  color: var(--cream-faint);
+  font-size: 13px;
+  color: var(--cream-muted);
 }
 
 /* ============================================================
@@ -790,7 +791,7 @@ footer {
 .era-badge .era-artists {
   font-size: 13px;
   font-style: italic;
-  color: var(--cream-faint);
+  color: var(--cream-muted);
 }
 
 /* === Feeling Grid === */

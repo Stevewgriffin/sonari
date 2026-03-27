@@ -51,7 +51,7 @@ export default function StepSongStyle({ data, onChange }) {
       </div>
 
       <div className="field">
-        <label>Lyric seed <span style={{ color: 'var(--cream-faint)', fontFamily: 'var(--sans)', fontSize: '0.82rem' }}>(optional)</span></label>
+        <label>Lyric seed <span style={{ color: 'var(--cream-muted)', fontFamily: 'var(--sans)', fontSize: '0.82rem' }}>(optional)</span></label>
         <textarea
           rows={3}
           value={data.lyricSeed}

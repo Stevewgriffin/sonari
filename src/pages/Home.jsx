@@ -188,7 +188,7 @@ export default function Home() {
               <h2>The Sonari sounds like the music of <em>who they were becoming.</em></h2>
               <p style={{ marginTop: 20 }}>Daniel Levitin's research confirms: the music of ages 12–25 carries an emotional charge that later music cannot replicate. Sonari uses birth year as the primary key into the generational voice library. This is not preference data — it is identity data.</p>
               <p style={{ marginTop: 16 }}>A 68-year-old with Approval as their primary driver receives a Sonari rooted in the warm confessional tradition of the acoustic singer-songwriter era. A 32-year-old with Ambition leading receives something closer to earnest folk-driven urgency. Same framework. Different sonic truth.</p>
-              <p style={{ marginTop: 16, fontSize: 13, color: 'var(--cream-faint)' }}>Levitin · <em>This Is Your Brain on Music</em></p>
+              <p style={{ marginTop: 16, fontSize: 13, color: 'var(--cream-muted)' }}>Levitin · <em>This Is Your Brain on Music</em></p>
             </div>
             <div className="reveal d2">
               <div className="sci-stat">
@@ -274,7 +274,7 @@ export default function Home() {
             <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
               <button className="btn btn-gold" onClick={() => navigate('/commission')}>Commission Their Sonari</button>
             </div>
-            <p style={{ marginTop: 16, fontSize: 13, color: 'var(--cream-faint)' }}>One original song · Delivered within minutes · Nothing is published until you say it is right</p>
+            <p style={{ marginTop: 16, fontSize: 13, color: 'var(--cream-muted)' }}>One original song · Delivered within minutes · Nothing is published until you say it is right</p>
           </div>
         </div>
       </section>
@@ -295,7 +295,7 @@ export default function Home() {
             <div className="eco-desc">Write from your formation</div>
           </div>
         </div>
-        <p style={{ textAlign: 'center', marginTop: 20, fontSize: 12, color: 'var(--cream-faint)' }}>A Compass Institute Company · thecompassinstitute.com</p>
+        <p style={{ textAlign: 'center', marginTop: 20, fontSize: 12, color: 'var(--cream-muted)' }}>A Compass Institute Company · thecompassinstitute.com</p>
       </div>
 
       {/* Footer */}

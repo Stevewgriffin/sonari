@@ -66,7 +66,7 @@ export default function StepReviewPay({ data }) {
           readOnly
           style={{ opacity: 0.5, cursor: 'not-allowed' }}
         />
-        <p style={{ fontSize: '0.78rem', marginTop: 6, color: 'var(--cream-faint)' }}>
+        <p style={{ fontSize: '0.78rem', marginTop: 6, color: 'var(--cream-muted)' }}>
           Payment will be connected in Phase 2 (Stripe Checkout)
         </p>
       </div>
