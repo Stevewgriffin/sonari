@@ -10,7 +10,7 @@
   --gold-faint: rgba(150, 118, 30, 0.10);
   --cream: #1a1816;
   --cream-dim: #3d3832;
-  --cream-faint: rgba(26, 24, 22, 0.25);
+  --cream-faint: rgba(26, 24, 22, 0.35);
   --cream-ghost: rgba(26, 24, 22, 0.06);
   --green: #3d7a4e;
   --orange: #b85e30;
@@ -175,7 +175,7 @@ section { padding: 80px 0; }
 }
 
 .hero-title em { font-style: italic; color: var(--cream-dim); }
-.hero-title strong { font-weight: 500; color: var(--gold-light); }
+.hero-title strong { font-weight: 700; color: var(--gold); }
 
 .hero-pronunciation {
   font-family: var(--serif);
@@ -268,6 +268,7 @@ section { padding: 80px 0; }
 .btn-gold {
   background: var(--gold);
   color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.15);
 }
 
 .btn-gold:hover { background: var(--gold-light); }
@@ -476,7 +477,7 @@ section { padding: 80px 0; }
   line-height: 1.6;
 }
 
-.compare-cell.not { color: var(--cream-faint); }
+.compare-cell.not { color: #999188; }
 .compare-cell.not::before { content: '\2717  '; }
 .compare-cell.is { color: var(--cream); }
 .compare-cell.is::before { content: '\2014  '; color: var(--gold); }
