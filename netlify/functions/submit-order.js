@@ -65,7 +65,7 @@ export default async (req, context) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Sonari Orders <orders@sonarimusic.com>',
+        from: 'Sonari Orders <onboarding@resend.dev>',
         to: ['stevewgriffin@gmail.com'],
         reply_to: email,
         subject: `New Sonari — ${occasion} for ${recipientName}`,
