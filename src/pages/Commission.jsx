@@ -83,16 +83,18 @@ export default function Commission() {
   }
   const prev = () => { if (step > 0) { setStep(s => s - 1); setShowMissing(false); window.scrollTo(0, 0) } }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!canAdvance) { setShowMissing(true); return }
-    // Save to localStorage so we don't lose it
     const order = { ...data, submittedAt: new Date().toISOString() }
     try {
-      const existing = JSON.parse(localStorage.getItem('sonari_orders') || '[]')
-      existing.push(order)
-      localStorage.setItem('sonari_orders', JSON.stringify(existing))
-    } catch (_) {}
-    console.log('Sonari beta order:', order)
+      await fetch('/api/submit-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order),
+      })
+    } catch (err) {
+      console.error('Submit error:', err)
+    }
     setSubmitted(true)
     window.scrollTo(0, 0)
   }
