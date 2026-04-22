@@ -81,6 +81,7 @@ export default function Commission() {
   const [data, setData] = useState(INITIAL)
   const [showMissing, setShowMissing] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
   const update = (fields) => { setData(prev => ({ ...prev, ...fields })); setShowMissing(false) }
 
@@ -96,19 +97,23 @@ export default function Commission() {
   }
   const prev = () => { if (step > 0) { setStep(s => s - 1); setShowMissing(false); window.scrollTo(0, 0) } }
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     if (!canAdvance) { setShowMissing(true); return }
+    if (submitting || submitted) return
+    setSubmitting(true)
     const order = { ...data, submittedAt: new Date().toISOString() }
-    try {
-      await fetch('/api/submit-order', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(order),
-      })
-    } catch (err) {
-      console.error('Submit error:', err)
-    }
+    // Flip to the confirmation screen immediately; the backend chain (email +
+    // Claude + APIPASS) can take 15-20s, and blocking the UI that long makes
+    // users think the form is broken. Fire the request and let it finish
+    // independently.
+    fetch('/api/submit-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(order),
+      keepalive: true,
+    }).catch(err => console.error('Submit error:', err))
     setSubmitted(true)
+    setSubmitting(false)
     window.scrollTo(0, 0)
   }
 
@@ -189,8 +194,8 @@ export default function Commission() {
               Continue
             </button>
           ) : (
-            <button className="btn btn-gold" onClick={handleSubmit}>
-              Request My Sonari (Beta)
+            <button className="btn btn-gold" onClick={handleSubmit} disabled={submitting}>
+              {submitting ? 'Sending…' : 'Request My Sonari (Beta)'}
             </button>
           )}
         </div>
