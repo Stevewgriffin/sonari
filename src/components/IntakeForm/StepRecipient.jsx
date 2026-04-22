@@ -1,4 +1,4 @@
-import { OCCASIONS, RELATIONSHIPS } from '../../utils/formData'
+import { BIRTH_DECADES, GENDERS, OCCASIONS, RELATIONSHIPS } from '../../utils/formData'
 
 export default function StepRecipient({ data, onChange }) {
   return (
@@ -26,6 +26,44 @@ export default function StepRecipient({ data, onChange }) {
             <option key={r} value={r}>{r}</option>
           ))}
         </select>
+      </div>
+
+      <div className="field">
+        <label>What is the recipient's gender?</label>
+        <div className="tile-grid">
+          {GENDERS.map(g => (
+            <div
+              key={g.id}
+              className={`tile${data.gender === g.id ? ' selected' : ''}`}
+              onClick={() => onChange({ gender: g.id })}
+            >
+              {g.label}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="field">
+        <label>What decade were they born in?</label>
+        <select
+          value={data.birthDecade}
+          onChange={e => onChange({ birthDecade: e.target.value })}
+        >
+          <option value="">Select decade…</option>
+          {BIRTH_DECADES.map(d => (
+            <option key={d} value={d}>{d}</option>
+          ))}
+        </select>
+      </div>
+
+      <div className="field">
+        <label>Exact birth date <span style={{ color: 'var(--cream-dim)', fontWeight: 'normal' }}>(optional — only if this is a birthday song)</span></label>
+        <input
+          type="text"
+          value={data.birthDate}
+          onChange={e => onChange({ birthDate: e.target.value })}
+          placeholder="e.g. March 14, 1972"
+        />
       </div>
 
       <div className="field">

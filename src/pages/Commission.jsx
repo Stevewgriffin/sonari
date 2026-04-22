@@ -18,6 +18,9 @@ const INITIAL = {
   // Step 1 — The Recipient
   recipientName: '',
   relationship: '',
+  gender: '',
+  birthDecade: '',
+  birthDate: '',
   occasion: '',
   // Step 2 — Who They Are
   atBest: '',
@@ -29,6 +32,7 @@ const INITIAL = {
   hardSeason: '',
   gratitude: '',
   // Step 4 — The Sound
+  vocalStyle: '',
   genre: '',
   tempo: '',
   // Step 5 — The Gift
@@ -44,6 +48,8 @@ function getMissing(step, data) {
     case 0:
       if (!data.recipientName.trim()) m.push("recipient's name")
       if (!data.relationship) m.push('relationship')
+      if (!data.gender) m.push("recipient's gender")
+      if (!data.birthDecade) m.push('birth decade')
       if (!data.occasion) m.push('occasion')
       break
     case 1:
@@ -56,6 +62,7 @@ function getMissing(step, data) {
       if (!data.gratitude.trim()) m.push('something you want them to know you noticed')
       break
     case 3:
+      if (!data.vocalStyle) m.push('vocal style')
       if (!data.genre.trim()) m.push('genre or style')
       if (!data.tempo) m.push('tempo')
       break

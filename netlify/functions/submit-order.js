@@ -12,16 +12,18 @@ export default async (req, context) => {
 
   const {
     // The Recipient
-    recipientName, relationship, occasion,
+    recipientName, relationship, gender, birthDecade, birthDate, occasion,
     // Who They Are
     atBest, driver, hardTimes, signature,
     // The Moments
     memory, hardSeason, gratitude,
     // The Sound
-    genre, tempo,
+    vocalStyle, genre, tempo,
     // The Gift
     feeling, extras, senderName, email,
   } = order
+
+  const genderLabel = { m: 'Male', f: 'Female' }[gender] || '—'
 
   const driverLabel = {
     ambition: 'Ambition — driven by achieving things and moving toward their goals',
@@ -45,6 +47,9 @@ export default async (req, context) => {
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
         ${row('Recipient', recipientName)}
         ${row('Relationship', relationship)}
+        ${row('Gender', genderLabel)}
+        ${row('Birth decade', birthDecade)}
+        ${row('Exact birth date', birthDate)}
         ${row('Occasion', occasion)}
       </table>
 
@@ -65,6 +70,7 @@ export default async (req, context) => {
 
       <h2 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.12em; color: #5a421a; margin-bottom: 12px;">The Sound</h2>
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+        ${row('Vocal style', vocalStyle)}
         ${row('Genre / style', genre)}
         ${row('Tempo', tempo)}
       </table>
@@ -105,6 +111,45 @@ export default async (req, context) => {
       const err = await res.text()
       console.error('Resend error:', err)
       return new Response(JSON.stringify({ error: 'Email failed' }), { status: 500 })
+    }
+
+    const siteUrl = process.env.URL || 'https://sonari-music-group.netlify.app'
+    let song = null
+    try {
+      const analyze = await fetch(`${siteUrl}/api/analyze-submission`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order),
+      })
+      if (!analyze.ok) {
+        console.error('analyze-submission non-OK:', analyze.status, await analyze.text())
+      } else {
+        song = await analyze.json()
+      }
+    } catch (chainErr) {
+      console.error('Chain to analyze-submission failed:', chainErr)
+    }
+
+    if (song?.lyrics && song?.title && song?.style) {
+      try {
+        const create = await fetch(`${siteUrl}/api/create-song`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            lyrics: song.lyrics,
+            title: song.title,
+            style: song.style,
+            senderEmail: email,
+            recipientName,
+            vocalGender: gender === 'f' ? 'f' : 'm',
+          }),
+        })
+        if (!create.ok) {
+          console.error('create-song non-OK:', create.status, await create.text())
+        }
+      } catch (chainErr) {
+        console.error('Chain to create-song failed:', chainErr)
+      }
     }
 
     return new Response(JSON.stringify({ ok: true }), { status: 200 })

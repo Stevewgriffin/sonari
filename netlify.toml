@@ -3,6 +3,14 @@
   publish = "dist"
   functions = "netlify/functions"
 
+# submit-order and analyze-submission orchestrate a Claude API call that
+# routinely runs 10-20s; the default 10s timeout cuts them off mid-chain.
+[functions."submit-order"]
+  timeout = 26
+
+[functions."analyze-submission"]
+  timeout = 26
+
 [dev]
   command = "npm run dev"
   targetPort = 5173
