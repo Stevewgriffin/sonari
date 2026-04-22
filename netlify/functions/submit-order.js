@@ -11,47 +11,75 @@ export default async (req, context) => {
   }
 
   const {
-    occasion, senderName, recipientName, relationship,
-    birthYear, voiceGender, voiceStyle, genre, traits,
-    loves, memory, feeling, tempo, length, lyricTone, lyricSeed, email
+    // The Recipient
+    recipientName, relationship, occasion,
+    // Who They Are
+    atBest, driver, hardTimes, signature,
+    // The Moments
+    memory, hardSeason, gratitude,
+    // The Sound
+    genre, tempo,
+    // The Gift
+    feeling, extras, senderName, email,
   } = order
 
+  const driverLabel = {
+    ambition: 'Ambition — driven by achieving things and moving toward their goals',
+    approval: 'Approval — driven by people, belonging, being loved, being accepted',
+    appetite: 'Appetite — driven by enjoying life, experiences, pleasures, the good things',
+  }[driver] || driver || '—'
+
+  const row = (label, value) => `
+    <tr>
+      <td style="padding: 8px 12px 8px 0; color: #4a4238; width: 180px; vertical-align: top;">${label}</td>
+      <td style="padding: 8px 0; color: #1a1510; font-weight: 500;">${value || '—'}</td>
+    </tr>
+  `
+
   const html = `
-    <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 32px; color: #1a1816;">
-      <h1 style="font-size: 2rem; color: #86690f; margin-bottom: 4px;">New Sonari Order</h1>
-      <p style="color: #706862; margin-bottom: 32px;">Submitted ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })} CT</p>
+    <div style="font-family: Georgia, serif; max-width: 640px; margin: 0 auto; padding: 32px; color: #1a1510; background: #ded7c7;">
+      <h1 style="font-size: 1.8rem; color: #5a421a; margin-bottom: 4px;">New Sonari Order</h1>
+      <p style="color: #4a4238; margin-bottom: 32px;">Submitted ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })} CT</p>
 
-      <h2 style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: #86690f; margin-bottom: 12px;">Occasion & People</h2>
+      <h2 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.12em; color: #5a421a; margin-bottom: 12px;">The Recipient</h2>
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
-        <tr><td style="padding: 6px 0; color: #706862; width: 140px;">Occasion</td><td style="padding: 6px 0; font-weight: 600;">${occasion}</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">From</td><td style="padding: 6px 0; font-weight: 600;">${senderName}</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">For</td><td style="padding: 6px 0; font-weight: 600;">${recipientName}</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">Relationship</td><td style="padding: 6px 0; font-weight: 600;">${relationship}</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">Customer email</td><td style="padding: 6px 0; font-weight: 600;">${email}</td></tr>
+        ${row('Recipient', recipientName)}
+        ${row('Relationship', relationship)}
+        ${row('Occasion', occasion)}
       </table>
 
-      <h2 style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: #86690f; margin-bottom: 12px;">Musical DNA</h2>
+      <h2 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.12em; color: #5a421a; margin-bottom: 12px;">Who They Are</h2>
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
-        <tr><td style="padding: 6px 0; color: #706862; width: 140px;">Birth year</td><td style="padding: 6px 0; font-weight: 600;">${birthYear}</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">Voice</td><td style="padding: 6px 0; font-weight: 600;">${voiceStyle} (${voiceGender})</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">Genre</td><td style="padding: 6px 0; font-weight: 600;">${genre}</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">Traits</td><td style="padding: 6px 0; font-weight: 600;">${(traits || []).join(', ')}</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">They love</td><td style="padding: 6px 0; font-weight: 600;">${loves || '—'}</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">Memory</td><td style="padding: 6px 0; font-weight: 600;">${memory || '—'}</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">Feeling</td><td style="padding: 6px 0; font-weight: 600;">${feeling}</td></tr>
+        ${row('At their best', atBest)}
+        ${row('Primary driver', driverLabel)}
+        ${row('When life gets hard', hardTimes)}
+        ${row('Unmistakably them', signature)}
       </table>
 
-      <h2 style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: #86690f; margin-bottom: 12px;">Song Style</h2>
+      <h2 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.12em; color: #5a421a; margin-bottom: 12px;">The Moments That Matter</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+        ${row('Shared moment', memory)}
+        ${row('Hard season / turning point', hardSeason)}
+        ${row('What you want them to know', gratitude)}
+      </table>
+
+      <h2 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.12em; color: #5a421a; margin-bottom: 12px;">The Sound</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+        ${row('Genre / style', genre)}
+        ${row('Tempo', tempo)}
+      </table>
+
+      <h2 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.12em; color: #5a421a; margin-bottom: 12px;">The Gift</h2>
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 32px;">
-        <tr><td style="padding: 6px 0; color: #706862; width: 140px;">Tempo</td><td style="padding: 6px 0; font-weight: 600;">${tempo}</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">Length</td><td style="padding: 6px 0; font-weight: 600;">${length}</td></tr>
-        <tr><td style="padding: 6px 0; color: #706862;">Lyric tone</td><td style="padding: 6px 0; font-weight: 600;">${lyricTone}</td></tr>
-        ${lyricSeed ? `<tr><td style="padding: 6px 0; color: #706862;">Lyric seed</td><td style="padding: 6px 0; font-weight: 600;">${lyricSeed}</td></tr>` : ''}
+        ${row('Feeling to leave them with', feeling)}
+        ${row('Anything else', extras)}
+        ${row('From', senderName)}
+        ${row('Customer email', email)}
       </table>
 
-      <div style="background: #ede6d4; border-radius: 8px; padding: 16px 20px;">
-        <p style="margin: 0; font-size: 0.9rem; color: #3d3832;">
-          <strong>Reply to ${email}</strong> with their song when it's ready.
+      <div style="background: #c5b699; border-radius: 8px; padding: 16px 20px;">
+        <p style="margin: 0; font-size: 0.9rem; color: #1a1510;">
+          <strong>Reply to ${email}</strong> with ${recipientName}'s song when it's ready.
         </p>
       </div>
     </div>

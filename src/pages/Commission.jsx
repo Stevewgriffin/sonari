@@ -1,61 +1,67 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import StepOccasion from '../components/IntakeForm/StepOccasion'
-import StepPeople from '../components/IntakeForm/StepPeople'
-import StepMusicalDNA from '../components/IntakeForm/StepMusicalDNA'
-import StepSongStyle from '../components/IntakeForm/StepSongStyle'
-import StepReviewPay from '../components/IntakeForm/StepReviewPay'
+import StepRecipient from '../components/IntakeForm/StepRecipient'
+import StepCharacter from '../components/IntakeForm/StepCharacter'
+import StepMoments from '../components/IntakeForm/StepMoments'
+import StepSound from '../components/IntakeForm/StepSound'
+import StepGift from '../components/IntakeForm/StepGift'
 
 const STEP_TITLES = [
-  'Choose the Occasion',
-  'The People',
-  'Musical DNA & Character',
-  'Song Style',
-  'Review & Submit',
+  'The Recipient',
+  'Who They Are',
+  'The Moments That Matter',
+  'The Sound',
+  'The Gift',
 ]
 
 const INITIAL = {
-  occasion: '',
-  senderName: '',
+  // Step 1 — The Recipient
   recipientName: '',
   relationship: '',
-  birthYear: '',
-  voiceGender: '',
-  voiceStyle: '',
-  genre: '',
-  traits: [],
-  loves: '',
+  occasion: '',
+  // Step 2 — Who They Are
+  atBest: '',
+  driver: '',
+  hardTimes: '',
+  signature: '',
+  // Step 3 — The Moments
   memory: '',
-  feeling: '',
+  hardSeason: '',
+  gratitude: '',
+  // Step 4 — The Sound
+  genre: '',
   tempo: '',
-  length: '2:30',
-  lyricTone: '',
-  lyricSeed: '',
+  // Step 5 — The Gift
+  feeling: '',
+  extras: '',
+  senderName: '',
   email: '',
 }
 
 function getMissing(step, data) {
   const m = []
   switch (step) {
-    case 0: if (!data.occasion) m.push('occasion'); break
-    case 1:
-      if (!data.senderName.trim()) m.push('your name')
+    case 0:
       if (!data.recipientName.trim()) m.push("recipient's name")
       if (!data.relationship) m.push('relationship')
+      if (!data.occasion) m.push('occasion')
+      break
+    case 1:
+      if (!data.atBest.trim()) m.push('what they do at their best')
+      if (!data.driver) m.push('what drives them')
+      if (!data.signature.trim()) m.push("something that's unmistakably them")
       break
     case 2:
-      if (!data.birthYear) m.push('birth year')
-      if (!data.voiceGender) m.push('voice gender')
-      if (!data.voiceStyle) m.push('voice style')
-      if (!data.genre) m.push('genre')
-      if (!(data.traits || []).length) m.push('at least one trait')
-      if (!data.feeling) m.push('feeling')
+      if (!data.memory.trim()) m.push('a shared moment')
+      if (!data.gratitude.trim()) m.push('something you want them to know you noticed')
       break
     case 3:
+      if (!data.genre.trim()) m.push('genre or style')
       if (!data.tempo) m.push('tempo')
-      if (!data.lyricTone) m.push('lyric tone')
       break
     case 4:
+      if (!data.feeling) m.push('what you want them to feel')
+      if (!data.senderName.trim()) m.push('your name')
       if (!data.email || !data.email.includes('@')) m.push('a valid email')
       break
   }
@@ -150,11 +156,11 @@ export default function Commission() {
         </div>
 
         {/* Step content */}
-        {step === 0 && <StepOccasion data={data} onChange={update} />}
-        {step === 1 && <StepPeople data={data} onChange={update} />}
-        {step === 2 && <StepMusicalDNA data={data} onChange={update} />}
-        {step === 3 && <StepSongStyle data={data} onChange={update} />}
-        {step === 4 && <StepReviewPay data={data} onChange={update} />}
+        {step === 0 && <StepRecipient data={data} onChange={update} />}
+        {step === 1 && <StepCharacter data={data} onChange={update} />}
+        {step === 2 && <StepMoments data={data} onChange={update} />}
+        {step === 3 && <StepSound data={data} onChange={update} />}
+        {step === 4 && <StepGift data={data} onChange={update} />}
 
         {/* Missing fields hint */}
         {showMissing && missing.length > 0 && (
