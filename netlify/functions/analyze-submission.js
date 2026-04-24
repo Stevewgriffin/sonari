@@ -123,13 +123,16 @@ export default async (req) => {
     recipientName, relationship, gender, birthDecade, birthDate, occasion,
     atBest, driver, hardTimes, signature,
     memory, hardSeason, gratitude,
-    vocalStyle, genre, tempo,
+    vocalStyle, vocalGender, genre, tempo,
     feeling, extras, senderName, email,
   } = order
 
   const era = eraFromDecade(birthDecade)
   const driverLabel = DRIVER_LABEL[driver] || driver || '—'
-  const vocalDescriptor = getDescriptor(vocalStyle, gender)
+  // vocalGender is the voice the buyer picked (Step 4, which column).
+  // Fall back to recipient gender for older submissions.
+  const effectiveVocalGender = vocalGender === 'f' || vocalGender === 'm' ? vocalGender : gender
+  const vocalDescriptor = getDescriptor(vocalStyle, effectiveVocalGender)
 
   const brief = [
     `# Recipient brief`,

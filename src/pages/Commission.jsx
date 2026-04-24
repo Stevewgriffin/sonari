@@ -33,6 +33,7 @@ const INITIAL = {
   gratitude: '',
   // Step 4 — The Sound
   vocalStyle: '',
+  vocalGender: '', // 'f' or 'm' — which column the buyer picked the voice from
   genre: '',
   tempo: '',
   // Step 5 — The Gift

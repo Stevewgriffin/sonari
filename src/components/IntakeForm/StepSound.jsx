@@ -2,7 +2,35 @@ import { TEMPOS, VOCAL_STYLES_F, VOCAL_STYLES_M } from '../../utils/formData'
 
 export default function StepSound({ data, onChange }) {
   const name = data.recipientName?.trim() || 'them'
-  const vocalOptions = data.gender === 'f' ? VOCAL_STYLES_F : data.gender === 'm' ? VOCAL_STYLES_M : null
+
+  const renderColumn = (heading, voices, gender) => (
+    <div>
+      <p
+        className="section-label"
+        style={{ marginTop: 0, marginBottom: 10, fontSize: '0.85rem' }}
+      >
+        {heading}
+      </p>
+      <div className="tile-grid" style={{ gridTemplateColumns: '1fr', marginBottom: 0 }}>
+        {voices.map(v => {
+          const isSelected = data.vocalStyle === v.id && data.vocalGender === gender
+          return (
+            <div
+              key={`${gender}-${v.id}`}
+              className={`tile${isSelected ? ' selected' : ''}`}
+              onClick={() => onChange({ vocalStyle: v.id, vocalGender: gender })}
+              style={{ textAlign: 'left', padding: '14px 18px' }}
+            >
+              <div style={{ fontWeight: 600 }}>{v.id}</div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--cream-dim)', marginTop: 4 }}>
+                {v.anchors}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
 
   return (
     <div>
@@ -10,30 +38,13 @@ export default function StepSound({ data, onChange }) {
 
       <div className="field">
         <label>What vocal style fits {name} best?</label>
-        <div className="subtitle" style={{ marginTop: -8, marginBottom: 12 }}>
-          Pick the voice that sounds most like music they love.
+        <div className="subtitle" style={{ marginTop: -8, marginBottom: 16 }}>
+          Pick the voice that sounds most like music they love — from either column.
         </div>
-        {vocalOptions ? (
-          <div className="tile-grid" style={{ gridTemplateColumns: '1fr' }}>
-            {vocalOptions.map(v => (
-              <div
-                key={v.id}
-                className={`tile${data.vocalStyle === v.id ? ' selected' : ''}`}
-                onClick={() => onChange({ vocalStyle: v.id })}
-                style={{ textAlign: 'left', padding: '14px 18px' }}
-              >
-                <div style={{ fontWeight: 600 }}>{v.id}</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--cream-dim)', marginTop: 4 }}>
-                  {v.anchors}
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div style={{ fontSize: '0.9rem', color: 'var(--cream-dim)' }}>
-            Go back to step 1 and choose a gender first — vocal options depend on it.
-          </div>
-        )}
+        <div className="vocal-columns">
+          {renderColumn('Female Voices', VOCAL_STYLES_F, 'f')}
+          {renderColumn('Male Voices', VOCAL_STYLES_M, 'm')}
+        </div>
       </div>
 
       <div className="field">

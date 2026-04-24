@@ -18,12 +18,18 @@ export default async (req, context) => {
     // The Moments
     memory, hardSeason, gratitude,
     // The Sound
-    vocalStyle, genre, tempo,
+    vocalStyle, vocalGender, genre, tempo,
     // The Gift
     feeling, extras, senderName, email,
   } = order
 
+  // vocalGender = which column the buyer picked (voice for the song).
+  // gender = recipient's gender (set in Step 1). Fall back to it for older
+  // submissions that predate the two-column picker.
+  const effectiveVocalGender = vocalGender === 'f' || vocalGender === 'm' ? vocalGender : (gender === 'f' ? 'f' : 'm')
+
   const genderLabel = { m: 'Male', f: 'Female' }[gender] || '—'
+  const vocalGenderLabel = { m: 'Male', f: 'Female' }[effectiveVocalGender] || '—'
 
   const driverLabel = {
     ambition: 'Ambition — driven by achieving things and moving toward their goals',
@@ -71,6 +77,7 @@ export default async (req, context) => {
       <h2 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.12em; color: #5a421a; margin-bottom: 12px;">The Sound</h2>
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
         ${row('Vocal style', vocalStyle)}
+        ${row('Voice gender (for Suno)', vocalGenderLabel)}
         ${row('Genre / style', genre)}
         ${row('Tempo', tempo)}
       </table>
@@ -141,7 +148,7 @@ export default async (req, context) => {
             style: song.style,
             senderEmail: email,
             recipientName,
-            vocalGender: gender === 'f' ? 'f' : 'm',
+            vocalGender: effectiveVocalGender,
           }),
         })
         if (!create.ok) {
