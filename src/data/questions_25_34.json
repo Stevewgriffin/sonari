@@ -1,0 +1,463 @@
+{
+  "version": "25-34",
+  "totalQuestions": 62,
+  "questions": [
+    {
+      "id": "A1",
+      "domain": "D1",
+      "subdomain": "D1.1",
+      "type": "likert",
+      "text": "I feel most alive when experiencing something new or intense.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A2",
+      "domain": "D1",
+      "subdomain": "D1.1",
+      "type": "likert",
+      "text": "I start new projects or hobbies excited but often abandon them before finishing.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A3",
+      "domain": "D1",
+      "subdomain": "D1.1",
+      "type": "likert",
+      "text": "I'm drawn to experiences that are edgy, adventurous, or push my boundaries.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A4",
+      "domain": "D1",
+      "subdomain": "D1.1",
+      "type": "likert",
+      "text": "When my work or life becomes too predictable, I feel restless.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A5",
+      "domain": "D1",
+      "subdomain": "D1.2",
+      "type": "likert",
+      "text": "I find comfort and satisfaction in familiar routines and established patterns.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A6",
+      "domain": "D1",
+      "subdomain": "D1.2",
+      "type": "likert",
+      "text": "When stressed by work or relationships, I reach for food, entertainment, or other pleasures.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A7",
+      "domain": "D1",
+      "subdomain": "D1.2",
+      "type": "likert",
+      "text": "I sometimes overspend or overindulge (eating, drinking, shopping) even when I know I should stop.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A8",
+      "domain": "D1",
+      "subdomain": "D1.2",
+      "type": "likert",
+      "text": "I think carefully about how I spend money and time on comfort and leisure.",
+      "category": "Appetite",
+      "reverseScored": true
+    },
+    {
+      "id": "A9",
+      "domain": "D1",
+      "subdomain": "D1.3",
+      "type": "likert",
+      "text": "I dive fully into new projects or opportunities when I get excited about them.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A10",
+      "domain": "D1",
+      "subdomain": "D1.3",
+      "type": "likert",
+      "text": "I'm more energized by intense short projects than by sustained long-term effort.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A12",
+      "domain": "D1",
+      "subdomain": "D1.4",
+      "type": "likert",
+      "text": "Boredom is one of the hardest things for me to tolerate.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A13",
+      "domain": "D1",
+      "subdomain": "D1.4",
+      "type": "likert",
+      "text": "Routine and predictability in work or life wear me down over time.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A15",
+      "domain": "D1",
+      "subdomain": "D1.5",
+      "type": "likert",
+      "text": "I notice and appreciate beauty, aesthetics, and sensory details more than most people.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A18",
+      "domain": "D1",
+      "subdomain": "D1.6",
+      "type": "likert",
+      "text": "I'm drawn toward career or personal activities that carry some risk or uncertainty.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A21",
+      "domain": "D1",
+      "subdomain": "D1.7",
+      "type": "likert",
+      "text": "I see humor in things and use it to navigate work and life challenges.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A22",
+      "domain": "D1",
+      "subdomain": "D1.7",
+      "type": "likert",
+      "text": "I can laugh at difficult situations without making others feel diminished.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A23",
+      "domain": "D1",
+      "subdomain": "D1.7",
+      "type": "likert",
+      "text": "People would say I'm naturally lighthearted and fun to work or socialize with.",
+      "category": "Appetite"
+    },
+    {
+      "id": "A24",
+      "domain": "D1",
+      "subdomain": "D1.7",
+      "type": "likert",
+      "text": "Humor helps me process hard things without avoiding the real issue.",
+      "category": "Appetite"
+    },
+    {
+      "id": "B1",
+      "domain": "D2",
+      "subdomain": "D2.1",
+      "type": "likert",
+      "text": "I'm aware of how colleagues and social circles perceive me and it affects how I present myself.",
+      "category": "Approval"
+    },
+    {
+      "id": "B2",
+      "domain": "D2",
+      "subdomain": "D2.1",
+      "type": "likert",
+      "text": "I feel a genuine lift when I receive recognition from colleagues or people in my field.",
+      "category": "Approval"
+    },
+    {
+      "id": "B3",
+      "domain": "D2",
+      "subdomain": "D2.1",
+      "type": "likert",
+      "text": "When I accomplish something at work or personally, I want the right people to know about it.",
+      "category": "Approval"
+    },
+    {
+      "id": "B4",
+      "domain": "D2",
+      "subdomain": "D2.1",
+      "type": "likert",
+      "text": "My sense of how I'm doing in my career is affected by feedback from people I respect.",
+      "category": "Approval"
+    },
+    {
+      "id": "B5",
+      "domain": "D2",
+      "subdomain": "D2.2",
+      "type": "likert",
+      "text": "I want acknowledgment from colleagues when I've contributed something meaningful to a project.",
+      "category": "Approval"
+    },
+    {
+      "id": "B6",
+      "domain": "D2",
+      "subdomain": "D2.2",
+      "type": "likert",
+      "text": "When my work goes unrecognized by people I respect professionally, it bothers me.",
+      "category": "Approval"
+    },
+    {
+      "id": "B8",
+      "domain": "D2",
+      "subdomain": "D2.3",
+      "type": "likert",
+      "text": "When someone I'm close to seems disappointed in me, I replay it and look for what I did wrong.",
+      "category": "Approval"
+    },
+    {
+      "id": "B11",
+      "domain": "D2",
+      "subdomain": "D2.3",
+      "type": "likert",
+      "text": "I say yes to people I care about even when the honest answer should be no.",
+      "category": "Approval"
+    },
+    {
+      "id": "B12",
+      "domain": "D2",
+      "subdomain": "D2.4",
+      "type": "likert",
+      "text": "I measure my career progress against specific peers I pay attention to.",
+      "category": "Approval"
+    },
+    {
+      "id": "B13",
+      "domain": "D2",
+      "subdomain": "D2.4",
+      "type": "likert",
+      "text": "When someone in my professional circle succeeds, I notice my internal response before genuine happiness.",
+      "category": "Approval"
+    },
+    {
+      "id": "B15",
+      "domain": "D2",
+      "subdomain": "D2.5",
+      "type": "likert",
+      "text": "I tell people what I honestly see even if it might damage the relationship.",
+      "category": "Approval"
+    },
+    {
+      "id": "B16",
+      "domain": "D2",
+      "subdomain": "D2.5",
+      "type": "likert",
+      "text": "I speak up at work even when it creates friction with people whose opinion matters.",
+      "category": "Approval"
+    },
+    {
+      "id": "B18",
+      "domain": "D2",
+      "subdomain": "D2.6",
+      "type": "likert",
+      "text": "I feel energized by being part of a team, organization, or community.",
+      "category": "Approval"
+    },
+    {
+      "id": "B19",
+      "domain": "D2",
+      "subdomain": "D2.6",
+      "type": "likert",
+      "text": "I invest in the health and cohesion of teams or groups I belong to, even when it costs me.",
+      "category": "Approval"
+    },
+    {
+      "id": "B21",
+      "domain": "D2",
+      "subdomain": "D2.7",
+      "type": "likert",
+      "text": "When I feel rejected by someone professional or personally important, it affects me for days.",
+      "category": "Approval"
+    },
+    {
+      "id": "B22",
+      "domain": "D2",
+      "subdomain": "D2.7",
+      "type": "likert",
+      "text": "When I sense a colleague or person I care about pulling away, I work to re-establish connection.",
+      "category": "Approval"
+    },
+    {
+      "id": "C1",
+      "domain": "D3",
+      "subdomain": "D3.1",
+      "type": "likert",
+      "text": "I feel a pull toward productivity and advancement even during periods meant for rest or vacation.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C2",
+      "domain": "D3",
+      "subdomain": "D3.1",
+      "type": "likert",
+      "text": "I take genuine satisfaction in completing projects and reaching professional or personal milestones.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C3",
+      "domain": "D3",
+      "subdomain": "D3.1",
+      "type": "likert",
+      "text": "When I'm not making progress toward something meaningful, I feel dissatisfied.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C4",
+      "domain": "D3",
+      "subdomain": "D3.2",
+      "type": "likert",
+      "text": "I think about what I'm building in my career that will still matter years from now.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C5",
+      "domain": "D3",
+      "subdomain": "D3.2",
+      "type": "likert",
+      "text": "I'm motivated to invest in people and projects that will have impact beyond my direct involvement.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C6",
+      "domain": "D3",
+      "subdomain": "D3.2",
+      "type": "likert",
+      "text": "I measure my career success by lasting effect and influence, not just immediate results.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C7",
+      "domain": "D3",
+      "subdomain": "D3.2",
+      "type": "likert",
+      "text": "I'm drawn to challenges and opportunities significant enough to matter at a scale beyond my immediate work.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C8",
+      "domain": "D3",
+      "subdomain": "D3.3",
+      "type": "scenario",
+      "text": "You led a significant project to success. Your team gets credit; your contribution isn't specifically named. Your honest feeling:",
+      "category": "Ambition",
+      "options": [
+        { "value": "a", "text": "The project succeeded — that's what matters." },
+        { "value": "b", "text": "Mild wistfulness but it passes." },
+        { "value": "c", "text": "Frustration I manage internally." },
+        { "value": "d", "text": "Frustration that affects how I feel about the success." }
+      ]
+    },
+    {
+      "id": "C9",
+      "domain": "D3",
+      "subdomain": "D3.3",
+      "type": "scenario",
+      "text": "You invested significantly in developing a colleague. They go on to success without mentioning your role. Your response:",
+      "category": "Ambition",
+      "options": [
+        { "value": "a", "text": "Pride — this is exactly what the investment was for." },
+        { "value": "b", "text": "Mild disappointment that passes." },
+        { "value": "c", "text": "A sense of loss I carry longer than I think is warranted." },
+        { "value": "d", "text": "Significant hurt — feels like a failure on their part." }
+      ]
+    },
+    {
+      "id": "C10",
+      "domain": "D3",
+      "subdomain": "D3.3",
+      "type": "scenario",
+      "text": "You led a significant initiative that failed publicly. You were clearly responsible. In the weeks after:",
+      "category": "Ambition",
+      "options": [
+        { "value": "a", "text": "I own it clearly and focus forward on what I learned." },
+        { "value": "b", "text": "I own it publicly but privately revisit what others could have done." },
+        { "value": "c", "text": "I own my decisions but the public failure is much harder to carry." },
+        { "value": "d", "text": "I struggle to separate the failure from my own competence." }
+      ]
+    },
+    {
+      "id": "C11",
+      "domain": "D3",
+      "subdomain": "D3.3",
+      "type": "scenario",
+      "text": "Someone less experienced is promoted into a leadership role above you. You believe it's the wrong choice. Over the following months:",
+      "category": "Ambition",
+      "options": [
+        { "value": "a", "text": "I commit to making them successful." },
+        { "value": "b", "text": "I do my job well while privately holding my assessment." },
+        { "value": "c", "text": "My motivation is genuinely affected, though I manage it." },
+        { "value": "d", "text": "I look for an exit — I can't sustain full contribution in this structure." }
+      ]
+    },
+    {
+      "id": "C12",
+      "domain": "D3",
+      "subdomain": "D3.4",
+      "type": "likert",
+      "text": "I track how my career progress compares to peers at similar stages.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C13",
+      "domain": "D3",
+      "subdomain": "D3.4",
+      "type": "likert",
+      "text": "The success of people in my field or company spurs me to push harder.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C14",
+      "domain": "D3",
+      "subdomain": "D3.4",
+      "type": "likert",
+      "text": "I'm energized by work environments where performance is ranked or compared.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C15",
+      "domain": "D3",
+      "subdomain": "D3.5",
+      "type": "likert",
+      "text": "I feel most effective and like myself when I'm setting direction for a team or project.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C16",
+      "domain": "D3",
+      "subdomain": "D3.5",
+      "type": "likert",
+      "text": "I'm drawn to roles where outcomes depend significantly on my ability to influence people.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C17",
+      "domain": "D3",
+      "subdomain": "D3.5",
+      "type": "likert",
+      "text": "It's difficult for me to contribute fully without being in a position to shape direction.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C18",
+      "domain": "D3",
+      "subdomain": "D3.6",
+      "type": "likert",
+      "text": "I struggle to release work I know could be better, even if further improvement won't be visible.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C19",
+      "domain": "D3",
+      "subdomain": "D3.6",
+      "type": "likert",
+      "text": "I'd rather develop genuine expertise in a few areas than be competent across many.",
+      "category": "Ambition"
+    },
+    {
+      "id": "C20",
+      "domain": "D3",
+      "subdomain": "D3.6",
+      "type": "likert",
+      "text": "I hold myself to a professional standard that most people would consider unnecessarily high.",
+      "category": "Ambition"
+    }
+  ]
+}
