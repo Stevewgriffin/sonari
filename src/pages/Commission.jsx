@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import StepRecipient from '../components/IntakeForm/StepRecipient'
 import StepCharacter from '../components/IntakeForm/StepCharacter'
-import StepCharacterEnhanced from '../components/IntakeForm/StepCharacterEnhanced'
 import StepMoments from '../components/IntakeForm/StepMoments'
 import StepSound from '../components/IntakeForm/StepSound'
 import StepGift from '../components/IntakeForm/StepGift'
@@ -188,7 +187,7 @@ export default function Commission() {
 
         {/* Step content */}
         {step === 0 && <StepRecipient data={data} onChange={update} />}
-        {step === 1 && <StepCharacterEnhanced data={data} onChange={update} />}
+        {step === 1 && <StepCharacter data={data} onChange={update} />}
         {step === 2 && <StepMoments data={data} onChange={update} />}
         {step === 3 && <StepSound data={data} onChange={update} />}
         {step === 4 && <StepGift data={data} onChange={update} />}
