@@ -134,7 +134,6 @@ export default function AssessmentScreen({ respondentId, ageRange, onComplete })
   return (
     <div className="assessment-container">
       <div className="assessment-header">
-        <div className="wordmark">Sonari</div>
         <div className="assessment-progress">
           <div className="progress-bar">
             <div className="progress-fill" style={{ width: `${progress}%` }} />

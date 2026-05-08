@@ -32,8 +32,6 @@ export default function AssessmentPage() {
     return (
       <div className="assessment-page">
         <div className="assessment-page-container">
-          <div className="wordmark">Sonari</div>
-
           <div className="intro-content">
             <h1>Discover Your Life Drivers</h1>
             <p className="intro-subtitle">Understand what motivates you with the AlignIQ Assessment</p>
@@ -83,10 +81,7 @@ export default function AssessmentPage() {
     return (
       <div className="assessment-page">
         <div className="assessment-page-container">
-          <div className="page-header">
-            <div className="wordmark">Sonari</div>
-            <div className="version-badge">v-2</div>
-          </div>
+          <div className="version-badge">v-2</div>
 
           <div className="demographics-content">
             <h2>Your Information</h2>

@@ -13,9 +13,6 @@ export default function AssessmentResults({ responses, onContinue }) {
   if (!archetype) {
     return (
       <div className="assessment-container">
-        <div className="assessment-header">
-          <div className="wordmark">Sonari</div>
-        </div>
         <div className="assessment-content">
           <div style={{ textAlign: 'center', padding: '40px 20px' }}>
             <p>Unable to generate your report. Please try again.</p>
@@ -30,9 +27,6 @@ export default function AssessmentResults({ responses, onContinue }) {
 
   return (
     <div className="assessment-container">
-      <div className="assessment-header">
-        <div className="wordmark">Sonari</div>
-      </div>
 
       <div className="assessment-content">
         <div className="results-container">

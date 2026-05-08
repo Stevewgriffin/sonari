@@ -11,21 +11,6 @@
   padding: 40px 0;
 }
 
-.page-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 40px;
-  gap: 16px;
-}
-
-.wordmark {
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--gold, #d4af37);
-}
-
 .version-badge {
   display: inline-block;
   padding: 6px 12px;
@@ -36,6 +21,7 @@
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
+  margin-bottom: 40px;
 }
 
 .intro-content {
