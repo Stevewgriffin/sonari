@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import StepRecipient from '../components/IntakeForm/StepRecipient'
 import StepCharacter from '../components/IntakeForm/StepCharacter'
@@ -78,11 +78,25 @@ function getMissing(step, data) {
 
 export default function Commission() {
   const navigate = useNavigate()
-  const [step, setStep] = useState(0)
-  const [data, setData] = useState(INITIAL)
+  const [step, setStep] = useState(() => {
+    const saved = localStorage.getItem('sonari-step')
+    return saved ? parseInt(saved, 10) : 0
+  })
+  const [data, setData] = useState(() => {
+    const saved = localStorage.getItem('sonari-data')
+    return saved ? JSON.parse(saved) : INITIAL
+  })
   const [showMissing, setShowMissing] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+
+  useEffect(() => {
+    localStorage.setItem('sonari-step', step)
+  }, [step])
+
+  useEffect(() => {
+    localStorage.setItem('sonari-data', JSON.stringify(data))
+  }, [data])
 
   const update = (fields) => { setData(prev => ({ ...prev, ...fields })); setShowMissing(false) }
 
@@ -97,6 +111,7 @@ export default function Commission() {
     window.scrollTo(0, 0)
   }
   const prev = () => { if (step > 0) { setStep(s => s - 1); setShowMissing(false); window.scrollTo(0, 0) } }
+  const resetForm = () => { if (confirm('Clear all your answers and start over?')) { setStep(0); setData(INITIAL); setShowMissing(false); localStorage.removeItem('sonari-step'); localStorage.removeItem('sonari-data'); window.scrollTo(0, 0) } }
 
   const handleSubmit = () => {
     if (!canAdvance) { setShowMissing(true); return }
@@ -115,6 +130,8 @@ export default function Commission() {
     }).catch(err => console.error('Submit error:', err))
     setSubmitted(true)
     setSubmitting(false)
+    localStorage.removeItem('sonari-step')
+    localStorage.removeItem('sonari-data')
     window.scrollTo(0, 0)
   }
 
@@ -187,7 +204,7 @@ export default function Commission() {
           {step === 0 ? (
             <button className="btn btn-outline" onClick={() => navigate('/')}>Back to Home</button>
           ) : (
-            <button className="btn btn-outline" onClick={prev}>Back</button>
+            <button className="btn btn-outline" onClick={prev}>Back One Step</button>
           )}
 
           {step < 4 ? (
@@ -200,6 +217,18 @@ export default function Commission() {
             </button>
           )}
         </div>
+
+        {step > 0 && (
+          <div style={{ textAlign: 'center', marginTop: 12 }}>
+            <button
+              className="btn-text"
+              onClick={resetForm}
+              style={{ fontSize: '0.85rem', color: 'var(--cream-muted)', cursor: 'pointer', border: 'none', background: 'none', textDecoration: 'underline' }}
+            >
+              Start over
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )
