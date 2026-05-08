@@ -183,6 +183,14 @@ export default function AssessmentScreen({ respondentId, ageRange, onComplete })
               </div>
             )}
           </div>
+
+          <div className="question-hint">
+            {currentIndex > 0 && (
+              <p style={{ fontSize: '0.85rem', color: 'var(--cream-muted)', margin: 0 }}>
+                💡 Use Back to review your previous answers anytime
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Navigation for manual stepping (optional) */}
@@ -191,8 +199,9 @@ export default function AssessmentScreen({ respondentId, ageRange, onComplete })
             className="btn btn-outline"
             onClick={handleBack}
             disabled={currentIndex === 0}
+            title="Go back to review previous answer"
           >
-            Back
+            ← Back
           </button>
 
           {!isLastQuestion && (
@@ -200,14 +209,19 @@ export default function AssessmentScreen({ respondentId, ageRange, onComplete })
               className="btn btn-outline"
               onClick={handleNext}
               disabled={responses[currentQuestion.id] === undefined}
+              title="Move to next question (or select an answer to auto-advance)"
             >
-              Next
+              Next →
             </button>
           )}
 
           {isLastQuestion && responses[currentQuestion.id] !== undefined && (
-            <button className="btn btn-gold" onClick={() => handleResponse(responses[currentQuestion.id])}>
-              Finish Assessment
+            <button
+              className="btn btn-gold"
+              onClick={() => handleResponse(responses[currentQuestion.id])}
+              title="Complete the assessment and see your results"
+            >
+              See Results
             </button>
           )}
         </div>
