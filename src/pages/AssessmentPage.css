@@ -11,12 +11,31 @@
   padding: 40px 0;
 }
 
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  gap: 16px;
+}
+
 .wordmark {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 40px;
   letter-spacing: 2px;
   color: var(--gold, #d4af37);
+}
+
+.version-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--gold, #d4af37);
+  color: #1a1a1a;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .intro-content {

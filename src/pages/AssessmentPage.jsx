@@ -83,7 +83,10 @@ export default function AssessmentPage() {
     return (
       <div className="assessment-page">
         <div className="assessment-page-container">
-          <div className="wordmark">Sonari</div>
+          <div className="page-header">
+            <div className="wordmark">Sonari</div>
+            <div className="version-badge">v-2</div>
+          </div>
 
           <div className="demographics-content">
             <h2>Your Information</h2>
