@@ -1,0 +1,143 @@
+# AlignIQ Assessment — Age 18-24 Version
+## 62 Questions | Mobile-Optimized for iPhone/Tablet
+
+*Note: Questions presented here organized by category. In actual assessment, they will be randomized and displayed 1-2 per mobile screen.*
+
+---
+
+## APPETITE DRIVER — 18 Questions
+
+### D1.1: Stimulation-Seeking (4)
+- A1: I feel most alive when experiencing something new or intense.
+- A2: I start things excited but often lose interest before finishing.
+- A3: I'm drawn to experiences that are edgy or push my boundaries.
+- A4: When life gets predictable, I feel restless.
+
+### D1.2: Hedonic/Comfort-Seeking (4)
+- A5: I find comfort in familiar routines and things I know well.
+- A6: When stressed, I reach for food, entertainment, or other pleasures.
+- A7: I sometimes overdo things (eating, drinking, shopping) even when I know I should stop.
+- A8: I think carefully about how I spend money and time on comfort. [REVERSE]
+
+### D1.3: Gratification Timing (2)
+- A9: I dive fully into new things when I get excited about them.
+- A10: I'm more energized by intense short bursts than by steady effort.
+
+### D1.4: Boredom Relationship (2)
+- A12: Boredom is one of the hardest things for me to tolerate.
+- A13: Routine and predictability wear me down over time.
+
+### D1.5: Sensory/Aesthetic (1)
+- A15: I notice beauty, aesthetics, and details more than most people.
+
+### D1.6: Risk Tolerance (1)
+- A18: I'm drawn to activities with some element of risk or uncertainty.
+
+### D1.7: Humor/Levity (4)
+- A21: I see humor in things and use it to navigate life.
+- A22: I can laugh at difficult situations without making others feel dismissed.
+- A23: People would say I'm naturally lighthearted and fun to be around.
+- A24: Humor helps me process hard things without avoiding them.
+
+---
+
+## APPROVAL DRIVER — 18 Questions
+
+### D2.1: Public/Social Validation (4)
+- B1: I'm aware of how others perceive me and it affects how I present myself.
+- B2: I feel a genuine lift when I get recognition from people who matter.
+- B3: When I accomplish something, I want the right people to know about it.
+- B4: My sense of how I'm doing is affected by feedback from people I respect.
+
+### D2.2: Peer/Professional Validation (2)
+- B5: I want acknowledgment from friends or peers when I've done something meaningful.
+- B6: When my work goes unrecognized by people I respect, it bothers me.
+
+### D2.3: Relational/Intimate Validation (2)
+- B8: When someone I care about seems disappointed in me, I replay it and look for what I did wrong.
+- B11: I say yes to people I care about even when the honest answer should be no.
+
+### D2.4: Comparison Orientation (2)
+- B12: I measure my progress against specific people I pay attention to.
+- B13: When someone in my peer group succeeds, I notice my internal response before genuine happiness.
+
+### D2.5: Conflict Avoidance vs. Relational Courage (2)
+- B15: I tell people what I honestly see even if it might hurt the relationship.
+- B16: I speak up in groups even when it creates friction with people who matter.
+
+### D2.6: Belonging/Community (2)
+- B18: I feel energized by being part of something larger than myself.
+- B19: I invest in the health of groups I belong to, even when it costs me.
+
+### D2.7: Rejection Sensitivity (2)
+- B21: When I feel rejected by someone who matters, it affects me for days.
+- B22: When I sense someone pulling away, I work to re-establish connection.
+
+---
+
+## AMBITION DRIVER — 26 Questions
+
+### D3.1: Achievement Orientation (3)
+- C1: I feel a pull toward productivity even during breaks and downtime.
+- C2: I take genuine satisfaction in completing things and reaching milestones.
+- C3: When I'm not making progress toward something meaningful, I feel dissatisfied.
+
+### D3.2: Impact/Legacy (4)
+- C4: I think about what I'm building that will still matter after I move on.
+- C5: I'm motivated to invest in people and things that will outlast my involvement.
+- C6: I measure success by lasting effect, not just immediate results.
+- C7: I'm drawn to problems big enough to matter beyond my immediate circle.
+
+### D3.3: Recognition/Status — Scenarios (4)
+- **C8:** You led a project to success. Your team gets credit; you don't. Your honest feeling:
+  - a. The work succeeded — that's what matters.
+  - b. Mild wistfulness but it passes.
+  - c. Frustration I manage internally.
+  - d. Frustration that affects how I feel about the success.
+
+- **C9:** You invested deeply in mentoring someone. They succeed publicly without mentioning you. Your response:
+  - a. Pride — this is exactly what it was for.
+  - b. Mild disappointment that passes.
+  - c. A sense of loss I carry longer than I should.
+  - d. Significant hurt — feels like a betrayal.
+
+- **C10:** You led a project that failed publicly. You were clearly responsible. After:
+  - a. I own it clearly and move forward on what I learned.
+  - b. I own it publicly but privately revisit what others could have done.
+  - c. I own my decisions but the public failure is much harder to carry.
+  - d. I struggle to separate the failure from my own worth.
+
+- **C11:** Someone less experienced gets a leadership role above you. You believe it's wrong. Over the following weeks:
+  - a. I commit to making them successful.
+  - b. I do my job well while privately holding my assessment.
+  - c. My motivation is genuinely affected, though I manage it.
+  - d. I look for an exit — I can't sustain contribution here.
+
+### D3.4: Competitive Orientation (3)
+- C12: I track how my progress compares to peers at similar life stages.
+- C13: The success of people in my field spurs me to push harder.
+- C14: I'm energized by contexts where performance is ranked or compared.
+
+### D3.5: Leadership/Influence (3)
+- C15: I feel most like myself when I'm setting direction for others.
+- C16: I'm drawn to situations where outcomes depend on my ability to influence people.
+- C17: It's difficult for me to contribute fully without being in a position to shape direction.
+
+### D3.6: Mastery/Excellence (3)
+- C18: I struggle to release work I know could be better, even if no one would notice.
+- C19: I'd rather be exceptional at a few things than competent at many.
+- C20: I hold myself to a standard that most people would consider unnecessarily high.
+
+---
+
+## RESPONSE FORMATS
+
+**Likert Scale (53 questions):**
+- Strongly Disagree
+- Disagree
+- Neutral
+- Agree
+- Strongly Agree
+
+**Scenario-Based (4 questions):**
+- Four distinct options (a/b/c/d)
